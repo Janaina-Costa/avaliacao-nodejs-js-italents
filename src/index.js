@@ -9,13 +9,22 @@ holerite.name = user.name
 holerite.cpf= user.cpf
 holerite.email = user.email
 holerite.profession = 'Médico Ortopedista'
+
 holerite.monthlySalary = 7000
 holerite.workload = 8
 holerite.overtimeWorked = 6
 holerite.foulsCounted = 10
-holerite.calculateRemuneration()
 
-const holeriteExtract = holerite.showHolerite()
+const diaryDiscountCalc = holerite.calculateDiscount().toFixed(2)
+const overtimeCalculation = holerite.calculateOvertime().toFixed(2)
+const totalRemuneration = holerite.calculateRemuneration().toFixed(2)
+
+
+const holeriteExtract = {
+  Total_desconto:`Salario/dia x NºFaltas (${holerite.foulsCounted})= R$ ${diaryDiscountCalc}`,
+  Total_hora_extra: `Salario/hora * THoraExtra(${holerite.overtimeWorked}) = R$ ${overtimeCalculation}`,
+  Total_remuneracao: `R$ ${totalRemuneration}`
+}
 
 const employee1 = holerite.userDataToHolerite()
 
